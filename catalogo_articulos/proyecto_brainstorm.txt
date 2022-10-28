@@ -1,0 +1,7 @@
+Crear el catalogo de articulos de mafensa
+El usuario autorizado debe ser capaz de agregar, modificar y eliminar los articulos creados.
+
+Se debe validar que las imagenes sean de un tamaño especifico y de un tipo especifico.
+
+Pantalla principal muestra los articulos ordenados en una tabla, pero tiene la opcion de verlo como cuadricula.
+Tiene un menu en donde se ubicara el inicio de sesión
