@@ -1,5 +1,12 @@
+# IDEAS Y TAREAS
 https://trello.com/b/mWiL1jwW
+# SKECTH
+https://www.figma.com/file/kfd3Je2gZ27ZpXnZBGCEZK/Sistema-gesti%C3%B3n-gastos---Laurencia?node-id=0%3A1
+# GESTION DE PAGOS PERSONALES EN EXCEL
+https://docs.google.com/spreadsheets/d/11y1pxpkHAgV4mdWaC_ElZiEYYNEoDL9-3HN3Rqd114E/edit#gid=834350326
+
 
 Cualquier duda que tengas respecto a este proyecto consultalo con tus libretas y archivos excel en donde has estado llevando la administración de tus finanzas 
+
 Aquí el usuario que manda eres tu, ya que es un proyecto pensado en hacerte la administración mucho más facil, para que puedas ver cuando si y cuando no te puedes dar tus lujitos.
 No desesperes y no dejes de programar, no importa que te hagan pensar que no sirves para esto.
