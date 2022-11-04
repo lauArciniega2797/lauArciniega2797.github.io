@@ -1,0 +1,92 @@
+NOMBRE PROYECTO: FinselfTH
+
+- DESKTOP -
+el menú se llenará de acuerdo con los apartados que el usuario agregue, por default estarán
+- fecha actual
+- logotipo
+- Dashboard/Inicio
+- Pagos fijos
+- Deudas
+
+-----------------------------------
+
+bd = finselfth
+tablas
+- usuarios
+- apartados
+- deudas
+- pagos_fijos
+- tabla para el nuevo apartado
+- configuracion
+- ingregos
+- egresos
+- abonos
+- pagos
+- cobros
+
+usuario:
+- nombre
+- apellido
+- email
+- celular
+- usuario
+- contraseña
+- ingreso
+- periodo de ingreso
+
+nuevo apartado (será una tabla en donde el usuario puede ir agregando datos)
+de un inicio en el menu aparecerá una opcion de un mas, ese es para que el pueda agregar un nuevo apartado
+del apartado nada más quiero:
+- nombre
+- descripción
+cada que se cree un nuevo apartado, se creara una nueva tabla, los campos de la tabla dependen del usuario.
+el usuario puede eliminar los apartados, y cuando se eliminen los apartados, se eliminan todos los datos de la tabla.
+
+deudas: 
+- concepto
+- cantidad total
+- periodo de pago
+- estatus
+- ultimo pago (fecha)
+- ultimo abono (cantidad)
+- restante
+- comentarios
+
+pagos_fijos:
+- concepto
+- cantidad
+- periodo de pago
+- estatus
+- comentarios
+
+opciones/configuracion del sistema
+hasta donde le permitire al usuario personalizar su espacio?
+modo oscuro: true
+periodo de pagos: semanal/quincenal/mensual/anual (esto es un filtro, pero puede configurar cual quiere por default)
+
+ingresos
+- concepto
+- cantidad
+- fecha
+- comentario
+
+cobros
+- concepto
+- cantidad
+- periodo de pago
+- fecha prestamo
+- fecha cobra
+- estatus
+- restante
+- comprobante
+- comentario
+
+-----------------------------------
+
+lenguajes a utilizar: javascript, php, html, css
+frameworks: vue, MDbootstrap, bulma, buefy, vuetify
+preprocesador: sassd
+
+de mi me interesa saber
+mi ingreso
+mis datos para que me mande notificaciones (email, cel)
