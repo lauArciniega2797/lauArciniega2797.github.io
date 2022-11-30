@@ -28,7 +28,39 @@
       } else {
         if(Notification.permission !== 'granted'){
           Notification.requestPermission().then(function(result) {
-            console.log(result);
+            var articles = [
+                ["Cómo reproducir sonidos en una notificación utilizando jQuery",
+                "http://programacion.net/articulo/como_reproducir_sonidos_en_una_notificacion_utilizando_jquery_1473"],
+                ["Sistema de likes como el de Facebook con jQuery, MySQL y PHP",
+                "http://programacion.net/articulo/sistema_de_likes_como_el_de_facebook_con_jquery-_mysql_y_php_1472"],
+                ["Subida de imágenes múltiple sin refrescar la página en Ajax con jQuery",
+                "http://programacion.net/articulo/subida_de_imagenes_multiple_sin_refrescar_la_pagina_en_ajax_con_jquery_1471"],
+                ["Cómo implementar una verificación por email con PHP",
+                "http://programacion.net/articulo/como_implementar_una_verificacion_por_email_con_php_1470"],
+                ["Cómo bloquear la subida de imágenes de desnudos con PHP",
+                "http://programacion.net/articulo/como_bloquear_la_subida_de_imagenes_de_desnudos_con_php_1469l"]
+            ];         
+            
+            setTimeout(function(){ 
+                let x = Math.floor((Math.random() * 5) + 1); /* Random number between 1 to 10 */
+                let title = articles[(x - 1)][0];
+                let desc = 'Mayoreo Ferretero del Norte S.A. de C.V.';
+                let url = articles[(x - 1)][1];
+                
+                notification = new Notification(title, {
+                  icon:'https://mafensa.com/mx/images/99720.png',
+                  body: desc,
+                });
+                /* Remove the notification from Notification Center when clicked.*/
+                notification.onclick = function () {
+                    window.open(url); 
+                };
+                /* Callback function when the notification is closed. */
+                notification.onclose = function () {
+                    console.log('Notification closed');
+                };
+
+              }, 60000); //calls every minute
           });
         }    
       }
