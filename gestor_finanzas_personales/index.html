@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST NOTIFICATIONS</title>
+  <style>
+    #myButton {
+      background-color: white;
+      outline: none;
+      border:1px solid black;
+      border-radius:4px;
+      padding: 20px 30px;
+      font-size:30px;
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Activar notificación</button>
+  
+  <script>
+    document.querySelector('#myButton').addEventListener('click', function (e) {
+      e.preventDefault()
+      console.log(Notification.permission)
+      if (!("Notification" in window)) {
+        console.log("Este navegador no es compatible con las notificaciones de escritorio");
+      } else {
+        if(Notification.permission !== 'granted'){
+          Notification.requestPermission().then(function(result) {
+            console.log(result);
+          });
+        }    
+      }
+
+    });
+  </script>  
+</body>
+</html>
