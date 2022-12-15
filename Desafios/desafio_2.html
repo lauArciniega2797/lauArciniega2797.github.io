@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desafio 2 | Operación matemática oculta</title>
+  </head>
+  <body>
+    <h1>Desafío 2</h1>
+    <img src="https://static.platzi.com/media/user_upload/ejercicio2-62f809ad-9e63-4d01-92e3-926dd9270cde.jpg">
+    <br>
+    <p id="main_text"></p>
+    
+    <br><br>
+    <p>Solución: El resultado de las operaciones se compone de la resta y la suma de los numeros en cuestión. Poniendo al principio la resta.</p>
+    
+    <script>
+      const main_text = document.querySelector('#main_text')
+      let opc = [[5, 4], [8, 2], [10, 8], [12, 9], [18, 2], [21, 5]]
+      
+      opc.forEach(element => {
+         const span = document.createElement('span')
+         const br = document.createElement('br')
+         
+         let suma = element[0] + element[1]
+         let resta = element[0] - element[1]
+         
+         span.innerHTML = `${element[0]} + ${element[1]} = ${resta}${suma}`
+         main_text.appendChild(span)
+         main_text.appendChild(br)
+      })
+      
+    </script>
+  </body>
+</html>
