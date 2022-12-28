@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Curso nuevo de programación | Platzi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Piedra, Papel o Tijera</h1>
+
+  <div id="main">
+    <div id="notify">
+      <div>
+        <p>✅ Ganaste!</p>
+        <button onclick="closeNotify()">Okay!</button>
+      </div>
+    </div>
+    
+    <div id="options_marcador">
+      <div id="buttons">
+        <div>
+          <button onclick="user_selection(1)">
+            <span>🪨</span>
+            <span>Piedra</span>
+          </button>
+          <button onclick="user_selection(2)">
+            <span>📄</span>
+            <span>Papel</span>
+          </button>
+          <button onclick="user_selection(3)">
+            <span>✂️</span>
+            <span>Tijera</span>
+          </button>
+        </div>
+      </div>
+      <div id="marcador">
+        <div>
+          <p id="victorias"><span>0</span><span>Victorias</span></p>
+          <p id="derrotas"><span>0</span><span>Derrotas</span></p>
+          <p id="empate"><span>0</span><span>Empates</span></p>
+        </div>
+      </div>
+    </div>
+        
+    <div id="content-answers">
+      <div id="ur_response">
+        <p><span>👀</span><span>Esperando...</span></p>
+      </div>
+      <div id="pc_response">
+        <p><span>👀</span><span>Esperando...</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
