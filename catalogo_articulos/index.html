@@ -12,20 +12,25 @@
  
     <button onclick="getCurrentLocation('1')">Ubicar en el mapa</button>
     <button onclick="getCurrentLocation('2')">Ubicar en el mapa</button>
+    <br/><br/>
+    <p id="coordenadas">Coordenadas: </p>
+    <a id="linkMaps"></a>
   <script>
     function getCurrentLocation(opc) {
-      console.log(navigator)
-      if (navigator.geolocation) {
-          if(opc == '1') {
-              navigator.geolocation.getCurrentPosition( function(position) {
-                  console.log('currentPosition: ', position);
-              });
-          } else {
-              navigator.geolocation.watchPosition( function(position) {
-                  console.log('watch: ', position);
-              });
-          }
-      }
+        const linkMaps = document.querySelector('#linkMaps')
+        const url = "https://www.google.com.mx/maps/place/"
+        const coordenadasTextBox = document.querySelector('#coordenadas')
+        
+        console.log(navigator)
+        
+        if (navigator.geolocation) {      
+            navigator.geolocation.getCurrentPosition( function(position) {
+                console.log(position)
+                coordenadasTextBox.innerHTML += ' Latitude: ' + position.coords.latitude + ', Longitud: ' + position.coords.longitude
+                linkMaps.href = url + position.coords.latitude + ',' + position.coords.longitude
+                linkMaps.innerHTML = url + position.coords.latitude + ',' + position.coords.longitude
+            });
+        }
     }
   </script>
 </body>
