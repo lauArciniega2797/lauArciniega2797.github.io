@@ -10,14 +10,21 @@
 </head>
 <body>
  
-  <button onclick="getCurrentLocation()">Ubicar en el mapa</button>
+    <button onclick="getCurrentLocation('1')">Ubicar en el mapa</button>
+    <button onclick="getCurrentLocation('2')">Ubicar en el mapa</button>
   <script>
-    function getCurrentLocation() {
+    function getCurrentLocation(opc) {
       console.log(navigator)
       if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition( function(position) {
-              console.log(position);
-          });
+          if(opc == '1') {
+              navigator.geolocation.getCurrentPosition( function(position) {
+                  console.log('currentPosition: ', position);
+              });
+          } else {
+              navigator.geolocation.watchPosition( function(position) {
+                  console.log('watch: ', position);
+              });
+          }
       }
     }
   </script>
