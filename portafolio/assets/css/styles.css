@@ -10,10 +10,11 @@
     --PTSans: 'PT Sans', sans-serif;
     --Overlock: 'Overlock', cursive;
     --Assistant: 'Assistant', sans-serif;
+    --Roboto: 'Roboto', sans-serif;
     --xl: 72px;
     --lg: 62px;
     --md: 42px;
-    --nrm: 26px;
+    --nrm: 24px;
     --sm: 18px;
     --xs: 14px;
 }
@@ -95,16 +96,16 @@ header div.header-background {
     width: 100%;
     z-index: 1;
 }
-section {
+section:not(#app_login) {
     background-color: var(--black_2);
     margin-top: -14%;
     padding-top: 260px;
     padding-bottom: 100px;
 }
-section article {
+section:not(#app_login) article {
     margin-bottom: 80px;
 }
-section article:last-child {
+section:not(#app_login) article:last-child {
     margin-bottom:0;
 }
 section article h2 {
@@ -189,6 +190,70 @@ footer ~ p {
     padding: 8px 0;
     text-align: center;
 }
+
+
+/* ADMINISTRATOR PAGE'S STYLES */
+section#app_login.loging {
+    font-family: var(--Overlock);
+}
+section#app_login.loging article {
+    align-items: center;
+    background-color: var(--black);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+section#app_login.loging article div {
+    background-color: hsl(205 73% 17% / 1);
+    color: var(--white);
+    padding: 1em 0.8em;
+    border-radius: 4px;
+    box-shadow: 0px 10px 10px -5px hsl(206 72% 6% / 1);
+    border: 2px solid hsl(206 72% 10% / 1);
+    width: 25vw;
+}
+section#app_login.loging article div h4 {
+    font-family: var(--PTSans);
+    font-size: var(--md);
+    text-align: center;
+    margin-bottom: 0.4em;
+}
+section#app_login.loging article div fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+section#app_login.loging article div fieldset:first-of-type {
+    margin-bottom: 1em;
+}
+section#app_login.loging article div fieldset label {
+    font-size: var(--sm);
+}
+section#app_login.loging article div fieldset input {
+    font-size: var(--nrm);
+    padding: 0.2em 0.4em;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    font-family: var(--Overlock);
+}
+section#app_login.loging article div button {
+    background-color: var(--green);
+    border:none;
+    color: var(--black_1);
+    display: block;
+    font-family: var(--Overlock);
+    font-size: var(--sm);
+    font-weight: 600;
+    margin-top: 2em;
+    padding: .5em 0;
+    width: 100%;
+
+
+}
+
 
 /* @media (max-width: 1780px) {
     header .header-container, section article {width: 85%;}

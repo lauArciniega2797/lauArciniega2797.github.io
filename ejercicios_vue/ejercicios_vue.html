@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba tabla con datos de vue</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="esteDiv">
+    <h4>Esta tabla se llenará con Vue, pero sin frameworks css</h4>
+    <table id="tablaPersonas">
+      <thead>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>ocupacion</th>
+        <th>ciudad</th>
+      </thead>
+      <tbody>
+        <tr v-for="item in personas">
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.apellidos }}</td>
+          <td>{{ item.edad }}</td>
+          <td>{{ item.ocupacion }}</td>
+          <td>{{ item.ciudad }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <h4>Slider con Vue y CSS</h4>
+    <p>¿Cuántos elementos quieres ver?</p>
+    <input min="1" type="number" name="cant_items" id="cant_items" v-model="item_per_slide">
+    <div id="slider_vue">
+        <img v-for="item in helper_slider" :src="item" width="200" height="200">
+    </div>
+    <hr>
+    <h4>Slider con Vue y CSS v.2</h4>
+    <p>¿Cuántos elementos quieres ver?</p>
+    <input min="1" type="number" name="cant_items" id="cant_items_2" v-model="input_per_slider_2">
+    <div id="slider_vue">
+        <img v-for="item in helper_slider" :src="item" width="200" height="200">
+    </div>
+    <button @click="controlers('prev')">Anterior</button>
+    <button @click="controlers('next')">Siguiente</button>
+  </div>
+
+  <script src="js/vue.js"></script>
+  <script>
+    var app = new Vue({
+        el: '#esteDiv',
+        data: {
+            personas: [
+                {nombre:'Laura Cecilia', apellidos:'Arciniega Roque', edad: 25, ocupacion: 'Desarrollador Web', ciudad:'Torreón'},
+                {nombre:'Miriam Guadalupe' ,apellidos:'Arciniega Roque', edad: 26, ocupacion: 'Cajera', ciudad: 'Garcia'},
+                {nombre:'Odeiris America', apellidos:'Arciniega Roque', edad: 22, ocupacion: 'Recepcionista', ciudad: 'Parras'},
+                {nombre:'Sergio', apellidos:'Arciniega Yañez', edad:56, ocupacion: 'Vendedor', ciudad: 'Parras'},
+                {nombre:'Laura Margarita', apellidos:'Roque Flores', edad:54, ocupacion:'Secretaria', ciudad:'Parras'}
+            ],
+            fotos_slider: [
+                'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80',//[0]
+                'https://images.unsplash.com/photo-1610296669228-602fa827fc1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80',//[1]
+                'https://images.unsplash.com/photo-1608178398319-48f814d0750c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=879&q=80',//[2]
+                'https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=819&q=80',//[3]
+                'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=911&q=80',//[4]
+                'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'//[5]
+            ],
+            product_slider:[
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+                {nombre_producto:'', descr:'', precio:0.00, oferta:0},
+            ],
+            item_per_slide:4,
+            input_per_slider_2:2,
+            helper_slider:[],
+            /*
+                - spaceman
+                - nebulosa azul
+                - nebulosa morada
+                - cielo estrellado
+                - medusa azul
+                - olas
+            */
+        },
+        created(){
+            this.show_items()
+            document.querySelector('#cant_items').setAttribute('max', this.fotos_slider.length - 1)
+            document.querySelector('#cant_items_2').setAttribute('max', this.product_slider.length - 1)
+        },
+        watch:{
+            item_per_slide: function(){
+                let first_element = this.helper_slider[0],
+                    index_first_element = this.fotos_slider.indexOf(first_element)
+                this.show_items(index_first_element)
+            }
+        },
+        methods: {
+            show_items: function(index_element){
+                let currentIndex = index_element ? index_element : 0
+                let count = 1
+                this.helper_slider = []
+                    //aquí se tiene que llenar el array helper y mostrarselo al usuario            
+                if (this.fotos_slider[currentIndex] && currentIndex < this.fotos_slider.length) {
+                    while(count < parseInt(this.item_per_slide) + 1){
+                        if(currentIndex > this.fotos_slider.length - 1){
+                            currentIndex = 0
+                        }
+                        if (currentIndex < this.fotos_slider.length) {
+                            this.helper_slider.push(this.fotos_slider[currentIndex]);
+                        }
+                        currentIndex++
+                        count++
+                    }
+                }
+            },
+            controlers: function(type){
+                switch(type){
+                    case 'next':
+                        let last_element = this.helper_slider[this.helper_slider.length - 1],
+                            index_last_element = this.fotos_slider.indexOf(last_element)
+
+                        if(index_last_element >= 0){
+                            this.helper_slider.shift()
+                            if (index_last_element == this.fotos_slider.length - 1) {
+                                this.helper_slider.push(this.fotos_slider[0])
+                            } else {
+                                this.helper_slider.push(this.fotos_slider[index_last_element + 1])
+                            }
+                        }
+                        break;
+                    case 'prev':
+                        let first_element = this.helper_slider[0],
+                            index_first_element = this.fotos_slider.indexOf(first_element)
+                            
+                        if(index_first_element >= 0){
+                            this.helper_slider.pop()
+                            if(index_first_element == 0) {
+                                this.helper_slider.unshift(this.fotos_slider[this.fotos_slider.length - 1])
+                            } else {
+                                this.helper_slider.unshift(this.fotos_slider[index_first_element - 1])
+                            }
+                        }
+                        break
+                }
+            },
+        },
+    })
+  </script>
+</body>
+</html>
