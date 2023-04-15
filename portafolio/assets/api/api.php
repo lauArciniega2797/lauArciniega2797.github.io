@@ -12,12 +12,21 @@ if(isset($_GET['action'])) {
 }
 
 if($action == 'login') {
-    $data = $_POST;
+    $data = json_decode(file_get_contents('php://input'), true);
 
-    var_dump($data);
+    $consulta = $conn->query("SELECT * FROM usuarios WHERE username = '" . $data['user'] . "' AND password = '" . $data['pass'] . "'");
+
+    if($consulta) {
+        if($consulta->rowCount() > 0){
+            $result['login'] = true;
+        } else {
+            $result['login'] = false;
+        }
+    } else {
+        $result['error'] = false;
+    }
 }
-
-
+$conn = null;
 echo json_encode($result);
-
+die();
 ?>

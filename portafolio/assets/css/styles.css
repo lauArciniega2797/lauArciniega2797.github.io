@@ -193,24 +193,41 @@ footer ~ p {
 
 
 /* ADMINISTRATOR PAGE'S STYLES */
+.failed_login, 
+.success_login { 
+    font-family: var(--Overlock);
+    text-align: center;
+    margin: 1.5em 0 0.8em 0;
+    padding: 0.3em 0;
+    font-weight: 600;
+    font-size: var(--sm);
+}
+.failed_login { 
+    background-color: #FCC8D1;
+    color: #D14D72;
+}
+.success_login { 
+    background-color: #c3f8eb;
+    color: #16c79a;
+}
 section#app_login.loging {
     font-family: var(--Overlock);
 }
 section#app_login.loging article {
     align-items: center;
-    background-color: var(--black);
+    background-color: #f3f6f9;
     display: flex;
     height: 100vh;
     justify-content: center;
     width: 100vw;
 }
 section#app_login.loging article div {
-    background-color: hsl(205 73% 17% / 1);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black_1);
     padding: 1em 0.8em;
     border-radius: 4px;
-    box-shadow: 0px 10px 10px -5px hsl(206 72% 6% / 1);
-    border: 2px solid hsl(206 72% 10% / 1);
+    box-shadow: 0px 10px 10px -5px #ccc;
+    border: 2px solid #f2f2f2;
     width: 25vw;
 }
 section#app_login.loging article div h4 {
@@ -242,7 +259,7 @@ section#app_login.loging article div fieldset input {
 section#app_login.loging article div button {
     background-color: var(--green);
     border:none;
-    color: var(--black_1);
+    color: var(--white);
     display: block;
     font-family: var(--Overlock);
     font-size: var(--sm);

@@ -21,6 +21,7 @@
         <article v-if="!login">
             <div>
                 <h4>Laura's Admin</h4>
+                <p v-if="message" :class="{ 'failed_login':!login, 'success_login':login }">{{ message }}</p>
                 <fieldset>
                     <label for="user">Usuario</label>
                     <input type="text" name="user" id="user" placeholder="Ingresa usuario" v-model="name_user">
