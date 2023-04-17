@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 header('Content-Type: application/json');
 header('Accept: application/json');
 header('Cache-Control: no-cache');
@@ -19,6 +19,11 @@ if($action == 'login') {
     if($consulta) {
         if($consulta->rowCount() > 0){
             $result['login'] = true;
+            $datos = array();
+            while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
+                array_push($datos, $fila);
+            }
+            $_SESSION['user_info'] = $datos;
         } else {
             $result['login'] = false;
         }

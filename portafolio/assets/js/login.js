@@ -6,7 +6,11 @@ let app_login = new Vue({
         pass_user: '',
         message: '',
     },
-    created(){},
+    created(){
+        let logued = document.querySelector('body').getAttribute('data_login')
+
+        if(logued == true) this.login = true
+    },
     watch: {},
     methods: {
         login_user: function(){
@@ -27,6 +31,7 @@ let app_login = new Vue({
                 if(!response.error) {
                     if(response.login) {
                         app.message = 'Ingresando...'
+                        
                         setTimeout(() => {
                             app.login = true
                         }, 5000);

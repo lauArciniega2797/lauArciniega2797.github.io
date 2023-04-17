@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+$logued = false;
+if(isset($_SESSION['user_info'])){
+    // var_dump($_SESSION['user_info']);
+    // var_dump($_SESSION['user_info'][0]['username']);
+    // var_dump($_SESSION['user_info'][0]['nombre']);
+    // var_dump($_SESSION['user_info'][0]['apellido']);
+    $logued = true;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
         <article v-if="!login">
             <div>
@@ -34,6 +44,34 @@
             </div>
         </article>        
         <article v-else>
+            <aside>
+                <div id="user">
+                    <p>
+                        <span>L</span>
+                        <span><?= $_SESSION['user_info'][0]['nombre'] . ' ' . $_SESSION['user_info'][0]['apellido']?></span>
+                    </p>
+                </div>
+                <div id="options">
+                    <ul>
+                        <li><a href=""><span>Mi perfil</span><i></i></a></li>
+                        <li><a href=""><span>Mis trabajos</span><i></i></a></li>
+                        <li><a href=""><span>Mi educación</span><i></i></a></li>
+                        <li><a href=""><span>Mis diplomas</span><i></i></a></li>
+                        <li><a href=""><span>Tecnologías</span><i></i></a></li>
+                        <li><a href=""><span>Lenguajes</span><i></i></a></li>
+                        <li><a href=""><span>Idiomas</span><i></i></a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div id="menu">
+                    <span>Dashboard</span>
+                    <a><span>L</span></a>
+                </div>
+                <div id="content">
+                    <p>¡Hola Laurencia! ¿Qué quieres hacer hoy?</p>
+                </div>
+            </main>
         </article>        
     </section>
 
