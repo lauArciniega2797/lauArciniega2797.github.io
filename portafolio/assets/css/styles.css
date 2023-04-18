@@ -21,6 +21,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body {
     color: var(--white);
@@ -274,6 +275,9 @@ section#app_login:not(.loging){
     padding: 0;
     width: 100%;
     height: 100vh;
+    font-size: var(--sm);
+    font-family: var(--Overlock);
+    letter-spacing: normal;
 }
 section#app_login:not(.loging) article {
     width: 100%;
@@ -283,10 +287,102 @@ section#app_login:not(.loging) article {
 }
 section#app_login:not(.loging) article aside {
     background-color: var(--black);
+    box-shadow: 0 0 7px #082032e0;
+    padding: 1em;
+    width: 10%;
+    transition: all .4s;
+}
+section#app_login:not(.loging) article aside.collapsed {
+    width: 3%;
+    padding: 0.5em;
+}
+section#app_login:not(.loging) article aside #user{
+    text-align: center;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+section#app_login:not(.loging) article aside #user:after {
+    content: '';
+    background-color: var(--white_2);
+    bottom: -20%;
+    height: 2px;
+    left: 30%;
+    position: absolute;
+    width: 40%;
+}
+section#app_login:not(.loging) article aside #user #user_avatar{
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    margin: 0 auto .5em auto;
+    text-transform: uppercase;
+    width: 2em;
+}
+section#app_login:not(.loging) article aside #user #user_avatar ~ p {
+    font-size: var(--sm);
+}
+section#app_login:not(.loging) article aside #options {
+    margin-top: 4em;
+}
+section#app_login:not(.loging) article aside #options ul {
+    list-style: none;
+}
+section#app_login:not(.loging) article aside #options ul li {
+    padding: 1em 0;
+}
+section#app_login:not(.loging) article aside #options ul li a {
+    color: var(--white_2);
+    display: inline-flex;
+    width: 100%;
+    justify-content: start;
+    gap: 0.3em;
+    align-items: center;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    transition: all .4s;
+}
+section#app_login:not(.loging) article aside.collapsed #options ul li a {
+    justify-content: center;
+}
+section#app_login:not(.loging) article aside #options ul li a.active,
+section#app_login:not(.loging) article aside #options ul li:hover a {
+    background-color: var(--green);
+}
+section#app_login:not(.loging) article aside #options ul li:hover a {
+    transition: background .2s;
+}
+section#app_login:not(.loging) article aside #options ul li a i {
+    font-size: var(--xs);
+    transition: all .4s;
+}
+section#app_login:not(.loging) article aside.collapsed #options ul li a i {
+    font-size: var(--sm);
 }
 section#app_login:not(.loging) article main {
-    width: 100%;
     color: var(--black_1);
+    width: 100%;
+}
+section#app_login:not(.loging) article main #menu {
+    padding: 0.4em 0.7em;
+    background: var(--white);
+    border-bottom: 1px solid #d4d4d4;
+    box-shadow: 0 3px 5px -2px #d4d4d4;
+    font-size: var(--xs);
+}
+section#app_login:not(.loging) article main #menu button {
+    outline: none;
+    border: 1px solid transparent;
+    width: 1.3em;
+    margin-right: 0.4em;
+    background: white;
+    cursor: pointer;
+}
+section#app_login:not(.loging) article main #menu button:hover {
+    background-color: #f3f6f9;
+    border:1px solid #ccc;
+    transition: all .2s;
 }
 
 

@@ -19,12 +19,12 @@ if(isset($_SESSION['user_info'])){
     <title>Administrador | Laura Arciniega Roque</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Overlock:wght@400;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <script src="https://kit.fontawesome.com/fc8db0068f.js" crossorigin="anonymous"></script>
 </head>
 <body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
@@ -46,35 +46,43 @@ if(isset($_SESSION['user_info'])){
         <article v-else>
             <aside>
                 <div id="user">
-                    <p>
-                        <span>L</span>
-                        <span><?= $_SESSION['user_info'][0]['nombre'] . ' ' . $_SESSION['user_info'][0]['apellido']?></span>
-                    </p>
+                    <p id="user_avatar"><span></span></p>
+                    <p v-if="!menu_collapsed"><span>{{ usuario_name }} <br> {{ usuario_apellido }}</span></p>
                 </div>
                 <div id="options">
                     <ul>
-                        <li><a href=""><span>Mi perfil</span><i></i></a></li>
-                        <li><a href=""><span>Mis trabajos</span><i></i></a></li>
-                        <li><a href=""><span>Mi educación</span><i></i></a></li>
-                        <li><a href=""><span>Mis diplomas</span><i></i></a></li>
-                        <li><a href=""><span>Tecnologías</span><i></i></a></li>
-                        <li><a href=""><span>Lenguajes</span><i></i></a></li>
-                        <li><a href=""><span>Idiomas</span><i></i></a></li>
+                        <li><a @click="changeView('Mi perfil', $event)" :class="{ 'active':current_view == 'Mi perfil' }" href=""><i class="fa-solid fa-user"></i><span v-if="!menu_collapsed">Mi perfil</span></a></li>
+                        <li><a @click="changeView('Mi educacion', $event)" :class="{ 'active':current_view == 'Mi educacion' }" href=""><i class="fa-solid fa-graduation-cap"></i><span v-if="!menu_collapsed">Mi educación</span></a></li>
+                        <li><a @click="changeView('Mis trabajos', $event)" :class="{ 'active':current_view == 'Mis trabajos' }" href=""><i class="fa-solid fa-briefcase"></i><span v-if="!menu_collapsed">Mis trabajos</span></a></li>
+                        <li><a @click="changeView('Mis diplomas', $event)" :class="{ 'active':current_view == 'Mis diplomas' }" href=""><i class="fa-solid fa-trophy"></i><span v-if="!menu_collapsed">Mis diplomas</span></a></li>
+                        <li><a @click="changeView('Mis páginas', $event)" :class="{ 'active':current_view == 'Mis páginas' }" href=""><i class="fa-solid fa-code"></i><span v-if="!menu_collapsed">Mis páginas</span></a></li>
+                        <li><a @click="changeView('Tecnologías', $event)" :class="{ 'active':current_view == 'Tecnologías' }" href=""><i class="fa-solid fa-computer-mouse"></i><span v-if="!menu_collapsed">Tecnologías</span></a></li>
+                        <li><a @click="changeView('Lenguajes', $event)" :class="{ 'active':current_view == 'Lenguajes' }" href=""><i class="fa-solid fa-globe"></i><span v-if="!menu_collapsed">Lenguajes</span></a></li>
                     </ul>
                 </div>
             </aside>
             <main>
                 <div id="menu">
-                    <span>Dashboard</span>
+                    <button title="Colapsar menu" @click="collapse_menu"><i class="fa-solid fa-bars"></i></button>
+                    <span>{{ current_view }}</span>
                     <a><span>L</span></a>
                 </div>
                 <div id="content">
-                    <p>¡Hola Laurencia! ¿Qué quieres hacer hoy?</p>
+                    <p v-if="current_view == 'Dashboard'">¡Hola Laurencia! ¿Qué quieres hacer hoy?</p>
+                    
                 </div>
             </main>
         </article>        
     </section>
 
-    <script src="assets/js/login.js"></script>
+
+    <script src="assets/js/componentes/lenguajes.js"></script>
+    <script src="assets/js/componentes/mi_educacion.js"></script>
+    <script src="assets/js/componentes/mi_perfil.js"></script>
+    <script src="assets/js/componentes/mis_diplomas.js"></script>
+    <script src="assets/js/componentes/mis_paginas.js"></script>
+    <script src="assets/js/componentes/mis_trabajos.js"></script>
+    <script src="assets/js/componentes/tecnologias.js"></script>
+    <script src="assets/js/admin.js"></script>
 </body>
 </html>
