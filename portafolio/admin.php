@@ -21,7 +21,6 @@ if(isset($_SESSION['user_info'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Overlock:wght@400;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     
     <script src="https://kit.fontawesome.com/fc8db0068f.js" crossorigin="anonymous"></script>
@@ -51,13 +50,41 @@ if(isset($_SESSION['user_info'])){
                 </div>
                 <div id="options">
                     <ul>
-                        <li><a @click="changeView('Mi perfil', $event)" :class="{ 'active':current_view == 'Mi perfil' }" href=""><i class="fa-solid fa-user"></i><span v-if="!menu_collapsed">Mi perfil</span></a></li>
-                        <li><a @click="changeView('Mi educacion', $event)" :class="{ 'active':current_view == 'Mi educacion' }" href=""><i class="fa-solid fa-graduation-cap"></i><span v-if="!menu_collapsed">Mi educación</span></a></li>
-                        <li><a @click="changeView('Mis trabajos', $event)" :class="{ 'active':current_view == 'Mis trabajos' }" href=""><i class="fa-solid fa-briefcase"></i><span v-if="!menu_collapsed">Mis trabajos</span></a></li>
-                        <li><a @click="changeView('Mis diplomas', $event)" :class="{ 'active':current_view == 'Mis diplomas' }" href=""><i class="fa-solid fa-trophy"></i><span v-if="!menu_collapsed">Mis diplomas</span></a></li>
-                        <li><a @click="changeView('Mis páginas', $event)" :class="{ 'active':current_view == 'Mis páginas' }" href=""><i class="fa-solid fa-code"></i><span v-if="!menu_collapsed">Mis páginas</span></a></li>
-                        <li><a @click="changeView('Tecnologías', $event)" :class="{ 'active':current_view == 'Tecnologías' }" href=""><i class="fa-solid fa-computer-mouse"></i><span v-if="!menu_collapsed">Tecnologías</span></a></li>
-                        <li><a @click="changeView('Lenguajes', $event)" :class="{ 'active':current_view == 'Lenguajes' }" href=""><i class="fa-solid fa-globe"></i><span v-if="!menu_collapsed">Lenguajes</span></a></li>
+                        <li>
+                            <a @click="changeView('Mi perfil', $event)" :class="{ 'active':current_view == 'Mi perfil' }" href="">
+                                <i class="fa-solid fa-user"></i><span v-if="!menu_collapsed">Mi perfil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Mi educacion', $event)" :class="{ 'active':current_view == 'Mi educacion' }" href="">
+                                <i class="fa-solid fa-graduation-cap"></i><span v-if="!menu_collapsed">Mi educación</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Mis trabajos', $event)" :class="{ 'active':current_view == 'Mis trabajos' }" href="">
+                                <i class="fa-solid fa-briefcase"></i><span v-if="!menu_collapsed">Mis trabajos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Mis diplomas', $event)" :class="{ 'active':current_view == 'Mis diplomas' }" href="">
+                                <i class="fa-solid fa-trophy"></i><span v-if="!menu_collapsed">Mis diplomas</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Mis páginas', $event)" :class="{ 'active':current_view == 'Mis páginas' }" href="">
+                                <i class="fa-solid fa-code"></i><span v-if="!menu_collapsed">Mis páginas</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Tecnologías', $event)" :class="{ 'active':current_view == 'Tecnologías' }" href="">
+                                <i class="fa-solid fa-computer-mouse"></i><span v-if="!menu_collapsed">Tecnologías</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="changeView('Lenguajes', $event)" :class="{ 'active':current_view == 'Lenguajes' }" href="">
+                                <i class="fa-solid fa-globe"></i><span v-if="!menu_collapsed">Lenguajes</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -69,13 +96,14 @@ if(isset($_SESSION['user_info'])){
                 </div>
                 <div id="content">
                     <p v-if="current_view == 'Dashboard'">¡Hola Laurencia! ¿Qué quieres hacer hoy?</p>
-                    
+                    <mi-perfil v-if="current_view == 'Mi perfil'"></mi-perfil>
                 </div>
             </main>
         </article>        
     </section>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="assets/js/componentes/lenguajes.js"></script>
     <script src="assets/js/componentes/mi_educacion.js"></script>
     <script src="assets/js/componentes/mi_perfil.js"></script>

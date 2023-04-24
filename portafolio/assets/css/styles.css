@@ -291,6 +291,8 @@ section#app_login:not(.loging) article aside {
     padding: 1em;
     width: 10%;
     transition: all .4s;
+    position: fixed;
+    height: 100vh;
 }
 section#app_login:not(.loging) article aside.collapsed {
     width: 3%;
@@ -370,6 +372,7 @@ section#app_login:not(.loging) article main #menu {
     border-bottom: 1px solid #d4d4d4;
     box-shadow: 0 3px 5px -2px #d4d4d4;
     font-size: var(--xs);
+    height: 3.2vh;
 }
 section#app_login:not(.loging) article main #menu button {
     outline: none;
@@ -383,6 +386,44 @@ section#app_login:not(.loging) article main #menu button:hover {
     background-color: #f3f6f9;
     border:1px solid #ccc;
     transition: all .2s;
+}
+section#app_login:not(.loging) article main #content {
+    height: 96.7vh;
+    overflow: auto;
+    padding: .6em
+}
+
+/* Mi perfil */
+section#app_login:not(.loging) article main #content #image {
+    width: 20%;
+}
+section#app_login:not(.loging) article main #content #image img {
+    height: 300px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    padding: 0.4em 1em;
+    border-radius: 2px;
+}
+section#app_login:not(.loging) article main #content #image p#message {
+    display: none;
+    padding: 0.3em 0.5em;
+    background: rgb(249 210 210);
+    border: 2px solid #E74646;
+    border-radius: 4px;
+    color: #E74646;
+    font-weight: 600;
+}
+section#app_login:not(.loging) article main #content #image button {
+    width: 100%;
+    padding: 0.6em 0;
+    font-size: var(--sm);
+    outline: none;
+    border: 1px solid #119c79;
+    border-radius: 4px;
+    margin-top: 0.7em;
+    background: var(--green);
+    color: var(--white);
+    cursor:pointer;
 }
 
 
