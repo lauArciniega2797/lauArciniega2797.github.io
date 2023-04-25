@@ -291,7 +291,6 @@ section#app_login:not(.loging) article aside {
     padding: 1em;
     width: 10%;
     transition: all .4s;
-    position: fixed;
     height: 100vh;
 }
 section#app_login:not(.loging) article aside.collapsed {
