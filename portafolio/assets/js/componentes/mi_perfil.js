@@ -5,7 +5,13 @@ Vue.component('mi-perfil', {
             message_image: '',
             img_selected: '',
 
-            nombre_user: ''
+            nombre_user: '',
+            user_img_url: '',
+            nombre_user:'',
+            apellidos_user:'',
+            tel_user:'',
+            email_user:'',
+            codigo:'',
         }
     }, 
     template:`
@@ -15,8 +21,9 @@ Vue.component('mi-perfil', {
                 <img id="img_visualizer">
                 <p id="message">{{ message_image }}</p>
                 <button @click="select_image">Subir foto</button>
-                <input type="file" id="image_selector" name="image_selector" @change="changing_img">
+                <input type="file" id="image_selector" name="image_selector" v-model="user_img_url" @change="changing_img">
             </div>
+            <!-- -->
 
             <div id="user_info">
                 <fieldset>
@@ -29,6 +36,32 @@ Vue.component('mi-perfil', {
                 </fieldset>
                 <fieldset>
                     <label>Teléfono</label>
+                    <input type="text" placeholder="000 000 0000" name="tel_user" id="tel_user" v-model="tel_user">
+                </fieldset>
+                <fieldset>
+                    <label>Email</label>
+                    <input type="text" placeholder="example@example.com" name="email_user" id="email_user" v-model="email_user">
+                </fieldset>
+                <hr>
+                <fieldset>
+                    <label>Estado</label>
+                    <select v-model="cp_user">
+                        <options v-for="item y cps" value="item.codigo">{{ item.codigo }}</options>
+                    </select>>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                    <label>Estado</label>
+                    <input type="text" placeholder="Ingresa nombre" name="nombre_user" id="nombre_user" v-model="nombre_user">
+                </fieldset>
+                <fieldset>
+                    <label>Ciudad</label>
+                    <input type="text" placeholder="Ingresa apellidos" name="apellidos_user" id="apellidos_user" v-model="apellidos_user">
+                </fieldset>
+                <fieldset>
+                    <label>Calle</label>
                     <input type="text" placeholder="000 000 0000" name="tel_user" id="tel_user" v-model="tel_user">
                 </fieldset>
                 <fieldset>

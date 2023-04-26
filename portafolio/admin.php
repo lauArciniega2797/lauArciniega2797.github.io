@@ -2,10 +2,6 @@
 session_start();
 $logued = false;
 if(isset($_SESSION['user_info'])){
-    // var_dump($_SESSION['user_info']);
-    // var_dump($_SESSION['user_info'][0]['username']);
-    // var_dump($_SESSION['user_info'][0]['nombre']);
-    // var_dump($_SESSION['user_info'][0]['apellido']);
     $logued = true;
 }
 ?>
