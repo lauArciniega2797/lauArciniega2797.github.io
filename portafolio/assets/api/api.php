@@ -32,6 +32,22 @@ if($action == 'login') {
         $result['error'] = false;
     }
 }
+
+if($action == 'estado') {
+    $datos = array();
+    $consulta = $conn->query("SELECT estado FROM estados_municipios GROUP BY estado");
+
+    if($consulta) {
+        while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            array_push($datos, $fila);
+        }
+
+        $result['datos'] = $datos;
+    } else {
+        $result['error'] = true;
+    }
+}
+
 $conn = null;
 echo json_encode($result);
 die();

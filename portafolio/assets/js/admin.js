@@ -9,6 +9,8 @@ let app_login = new Vue({
         usuario_apellido:'',
         usuario_email:'',
 
+        register: false,
+
         current_view:'Dashboard',
         menu_collapsed: false
     },

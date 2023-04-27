@@ -17,12 +17,27 @@ if(isset($_SESSION['user_info'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Overlock:wght@400;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
     
     <script src="https://kit.fontawesome.com/fc8db0068f.js" crossorigin="anonymous"></script>
 </head>
 <body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
+        <article class="modal" v-if="register">
+            <div class="header-modal">
+                <h4>Registrar usuario</h4>
+                <button @click="register = false">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="body-modal">
+                <mi-perfil use="register"></mi-perfil>
+            </div>
+            <div class="footer-modal">
+                <button @click="register = false">Cancelar</button>
+                <button @click="">Guardar</button>
+            </div>
+        </article>
         <article v-if="!login">
             <div>
                 <h4>Laura's Admin</h4>
@@ -36,6 +51,7 @@ if(isset($_SESSION['user_info'])){
                     <input type="password" name="pass" id="pass" placeholder="******" v-model="pass_user">
                 </fieldset>
                 <button id="send_btn" @click="login_user">Ingresar</button>
+                <a @click="register = true">Registrate</a>
             </div>
         </article>        
         <article v-else>
