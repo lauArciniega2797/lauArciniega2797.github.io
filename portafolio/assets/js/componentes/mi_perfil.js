@@ -66,7 +66,7 @@ Vue.component('mi-perfil', {
                 <fieldset>
                 <label>Colonia</label>
                     <select v-model="user.colonia">
-                        <options v-for="item y colonias" value="item">{{ item }}</options>
+                        <options v-for="item in colonias" value="item">{{ item }}</options>
                     </select>>
                 </fieldset>
                 <fieldset>
@@ -119,25 +119,27 @@ Vue.component('mi-perfil', {
         // "#f39c12",   //naranja
         this.getEstados()
         if(this.use == 'register'){
-            this.user.image = ''
-            this.user.nombre = ''
-            this.user.apellidos = ''
-            this.user.telefono = ''
-            this.user.celular = ''
-            this.user.email = ''
-            this.user.estado = 'Hidalgo'
-            this.user.codigo_postal = ''
-            this.user.municipio = ''
-            this.user.colonia = ''
-            this.user.calle = ''
-            this.user.no_ext = ''
-            this.user.no_int = ''
-            this.user.profesion = ''
-            this.user.descr = ''
-            this.user.objetivo_profesional = ''
-            this.user.github = ''
-            this.user.linkedin = ''
-            this.user.portafolio_url = ''
+            this.user = {
+                image: '',
+                nombre: '',
+                apellidos: '',
+                telefono: '',
+                celular: '',
+                email: '',
+                estado: 'Hidalgo',
+                codigo_postal: '',
+                municipio: '',
+                colonia: '',
+                calle: '',
+                no_ext: '',
+                no_int: '',
+                profesion: '',
+                descr: '',
+                objetivo_profesional: '',
+                github: '',
+                linkedin: '',
+                portafolio_url: ''
+            }
         } else {
             this.getData()
         }

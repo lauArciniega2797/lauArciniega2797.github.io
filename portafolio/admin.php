@@ -31,7 +31,7 @@ if(isset($_SESSION['user_info'])){
                 </button>
             </div>
             <div class="body-modal">
-                <mi-perfil use="register"></mi-perfil>
+                <mi-perfil use="register" ref="user_info_modal"></mi-perfil>
             </div>
             <div class="footer-modal">
                 <button @click="register = false">Cancelar</button>
