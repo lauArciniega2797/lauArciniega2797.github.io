@@ -15,11 +15,12 @@ if(isset($_SESSION['user_info'])){
     <title>Administrador | Laura Arciniega Roque</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Overlock:wght@400;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="assets/css/robotoFont.css" rel="stylesheet">
+    <link href="assets/css/assistantFont.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/general_styles.css">
     <link rel="stylesheet" href="assets/css/admin.css">
     
-    <script src="https://kit.fontawesome.com/fc8db0068f.js" crossorigin="anonymous"></script>
+    <script src="assets/js/kitfontawesomecom_fc8db0068f.js" crossorigin="anonymous"></script>
 </head>
 <body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
@@ -117,7 +118,7 @@ if(isset($_SESSION['user_info'])){
     </section>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="assets/js/vue.js"></script>
     <script src="assets/js/componentes/lenguajes.js"></script>
     <script src="assets/js/componentes/mi_educacion.js"></script>
     <script src="assets/js/componentes/mi_perfil.js"></script>
