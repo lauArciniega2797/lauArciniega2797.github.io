@@ -1,0 +1,90 @@
+:root {
+    --black: #082032;
+    --black_1: #191718;
+    --black_2: #0c1b27;
+    --green: #16C79A;
+    --blue: #185ADB;
+    --blue_2: #2F89FC;
+    --white_2: #e6e6e6;
+    --PTSans: 'PT Sans', sans-serif;
+    --Overlock: 'Overlock', cursive;
+    --Assistant: 'Assistant', sans-serif;
+    --Roboto: 'Roboto', sans-serif;
+    --xl: 72px;
+    --lg: 62px;
+    --md: 42px;
+    --nrm: 24px;
+    --sm: 18px;
+    --xs: 14px;
+    
+    
+    --c_primary: #0779E4;
+    --c_white: #fff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #d6d6d6;
+    cursor: pointer;
+}
+.btn-primary {
+    background: #0779E4;
+    color: #fff;
+    border: 1px solid #0667c1;
+    transition: background .3s;
+}
+.btn-primary:hover {
+    background: #0774da;
+}
+.btn-secondary {
+    background: white;
+    border: 1px solid #bfbfbf;
+    transition: background .3s;
+}
+.btn-secondary:hover {
+    background: #fafafa;
+}
+.btn-danger {
+    background: #EB455F;
+    color: white;
+    border: 1px solid #e92f4b;
+    transition: all .3s;
+}
+.btn-danger:hover {
+    background:#ea3953;
+}
+.btn-warning {
+    background: #FDD36A;
+    color: #242424;
+    border: 1px solid #fccb4f;
+    transition: .2s;
+}
+.btn-warning:hover {
+    background: #fdd05e;
+}
+.btn-success {
+    background: #1FAB89;
+    color: white;
+    border: 1px solid #1b9375;
+    transition: .2s;
+}
+.btn-success:hover {
+    background: #1ea482;
+}
+.btn-disabled {
+    background-color: #e6e6e6;
+    color: #818181;
+    cursor: not-allowed;
+}
+/* black1:2C3333 */
+/* gray1:395B64 */
+/* green1:32E0C4 */
+/* FONT SIZE */

@@ -9,7 +9,10 @@ Vue.component('mi-perfil', {
             cps:[],
             estados: [],
             municipios: [],
-            colonias: []
+            colonias: [],
+            estado_selected: false,
+            cp_selected: false,
+            municipio_selected: false,
         }
     }, 
     template:`
@@ -47,27 +50,36 @@ Vue.component('mi-perfil', {
                 <hr>
                 <fieldset>
                     <label>Estado</label>
-                    <select v-model="user.estado">
-                        <option v-for="item in estados" value="item.estado">{{ item.estado }}</option>
+                    <select v-model="user.estado" @change="estado_change">
+                        <option v-for="item in estados" :value="item">{{ item }}</option>
                     </select>
                 </fieldset>
                 <fieldset>
                     <label>C.P.</label>
-                    <select v-model="user.codigo_postal">
-                        <options v-for="item in cps" value="item">{{ item }}</options>
+                    <select v-model="user.codigo_postal" v-if="estado_selected || user.estado != ''" @change="cp_change">
+                        <option v-for="item in cps" :value="item">{{ item }}</option>
+                    </select>
+                    <select v-else v-model="user.codigo_postal" disabled>
+                        <option></option>
                     </select>
                 </fieldset>
                 <fieldset>
                     <label>Municipio</label>
-                    <select v-model="user.municipio">
-                        <options v-for="item in municipios" value="item">{{ item }}</options>
+                    <select v-model="user.municipio" v-if="user.codigo_postal != '' || cp_selected" @change="municipio_change">
+                        <option v-for="item in municipios" :value="item">{{ item }}</option>
+                    </select>
+                    <select v-model="user.municipio" v-else disabled>
+                        <option></option>
                     </select>
                 </fieldset>
                 <fieldset>
                 <label>Colonia</label>
-                    <select v-model="user.colonia">
-                        <options v-for="item in colonias" value="item">{{ item }}</options>
-                    </select>>
+                    <select v-model="user.colonia" v-if="user.municipio != '' || municipio_selected">
+                        <option v-for="item in colonias" :value="item">{{ item }}</option>
+                    </select>
+                    <select v-model="user.colonia" v-else disabled>
+                        <option></option>
+                    </select>
                 </fieldset>
                 <fieldset>
                     <label>Calle</label>
@@ -117,7 +129,7 @@ Vue.component('mi-perfil', {
         // "#e74c3c",   //rojo
         // "#1abc9c",   //verde mas claro
         // "#f39c12",   //naranja
-        this.getEstados()
+        
         if(this.use == 'register'){
             this.user = {
                 image: '',
@@ -142,6 +154,17 @@ Vue.component('mi-perfil', {
             }
         } else {
             this.getData()
+        }
+
+        this.getEstados()
+        if(this.user.estado != ''){
+            this.getCodigosPostales()
+        }
+        if(this.user.codigo_postal != '') {
+            this.getMunicipios()
+        }
+        if(this.user.municipio != '') {
+            this.getColonias()
         }
     },
     watch:{
@@ -197,6 +220,52 @@ Vue.component('mi-perfil', {
                     this.estados = data.datos
                 }
             })
+        },
+        getCodigosPostales: function(){
+            fetch('./assets/api/api.php?action=cps&estado=' + this.user.estado)
+            .then(data => data.json())
+            .then(data => {
+                if(data.error){
+                    console.warn('No se han podido cargar los códigos postales')
+                } else {
+                    this.cps = data.datos
+                }
+            })
+        },
+        getMunicipios: function(){
+            fetch('./assets/api/api.php?action=municipios&estado=' + this.user.estado + '&cp=' + this.user.codigo_postal)
+            .then(data => data.json())
+            .then(data => {
+                if(data.error){
+                    console.warn('No se han podido cargar los municipios')
+                } else {
+                    this.municipios = data.datos
+                }
+            })
+        },
+        getColonias: function(){
+            fetch('./assets/api/api.php?action=colonias&estado=' + this.user.estado + '&cp=' + this.user.codigo_postal + '&municipio=' + this.user.municipio)
+            .then(data => data.json())
+            .then(data => {
+                if(data.error){
+                    console.warn('No se han podido cargar las colonias')
+                } else {
+                    this.colonias = data.datos
+                }
+            })
+        },
+        estado_change: function(){
+            this.estado_selected = true; 
+            this.getCodigosPostales()
+        },
+        cp_change: function(){
+            this.cp_selected = true; 
+            this.getMunicipios()
+            this.getColonias()
+        },
+        municipio_change: function(){
+            this.municipio_selected = true
+            this.getColonias()
         }
     }
 })
