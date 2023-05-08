@@ -14,7 +14,7 @@ if(isset($_GET['action'])) {
 if($action == 'login') {
     $data = json_decode(file_get_contents('php://input'), true);
 
-    $consulta = $conn->query("SELECT nombre, apellido, username, email FROM usuarios WHERE username = '" . $data['user'] . "' AND password = '" . $data['pass'] . "'");
+    $consulta = $conn->query("SELECT nombre, apellidos, username, email FROM usuarios WHERE username = '" . $data['user'] . "' AND password = '" . $data['pass'] . "'");
 
     if($consulta) {
         if($consulta->rowCount() > 0){

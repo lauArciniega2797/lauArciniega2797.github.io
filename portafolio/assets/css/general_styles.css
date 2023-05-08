@@ -10,34 +10,43 @@
     --Overlock: 'Overlock', cursive;
     --Assistant: 'Assistant', sans-serif;
     --Roboto: 'Roboto', sans-serif;
-    --xl: 72px;
-    --lg: 62px;
-    --md: 42px;
-    --nrm: 24px;
-    --sm: 18px;
-    --xs: 14px;
+    --xl: 3em;
+    --lg: 1.9em;
+    --md: 1.4em;
+    --nrm: 1em;
+    --sm: .9em;
+    --xs: .8em;
     
     
     --c_primary: #0779E4;
     --c_white: #fff;
+    --c_gray: #d6d6d6;
+    --c_red: #EB455F;
+    --c_yellow: #FDD36A;
+    --c_black: #242424;
+    --c_green: #1FAB89;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+body {
+    font-size: 18px;
+    font-family: var(--Roboto);
+    color: var(--c_black)
+}
 /* BUTTONS */
 .btn {
     padding: 0.5em 1em;
     border-radius: 4px;
     outline: none;
-    border: 1px solid #d6d6d6;
+    border: 1px solid var(--c_gray);
     cursor: pointer;
 }
 .btn-primary {
-    background: #0779E4;
-    color: #fff;
+    background: var(--c_primary);
+    color: var(--c_white);
     border: 1px solid #0667c1;
     transition: background .3s;
 }
@@ -45,7 +54,7 @@
     background: #0774da;
 }
 .btn-secondary {
-    background: white;
+    background: var(--c_white);
     border: 1px solid #bfbfbf;
     transition: background .3s;
 }
@@ -53,8 +62,8 @@
     background: #fafafa;
 }
 .btn-danger {
-    background: #EB455F;
-    color: white;
+    background: var(--c_red);
+    color: var(--c_white);
     border: 1px solid #e92f4b;
     transition: all .3s;
 }
@@ -62,8 +71,8 @@
     background:#ea3953;
 }
 .btn-warning {
-    background: #FDD36A;
-    color: #242424;
+    background: var(--c_yellow);
+    color: var(--c_black);
     border: 1px solid #fccb4f;
     transition: .2s;
 }
@@ -71,8 +80,8 @@
     background: #fdd05e;
 }
 .btn-success {
-    background: #1FAB89;
-    color: white;
+    background: var(--c_green);
+    color: var(--c_white);
     border: 1px solid #1b9375;
     transition: .2s;
 }
@@ -84,7 +93,136 @@
     color: #818181;
     cursor: not-allowed;
 }
+.btn-block {
+    display: block;
+    width: 100%;
+}
 /* black1:2C3333 */
 /* gray1:395B64 */
 /* green1:32E0C4 */
 /* FONT SIZE */
+.is-xl { font-size: var(--xl); }
+.is-lg { font-size: var(--lg); }
+.is-md { font-size: var(--md); }
+.is-nrm { font-size: var(--nrm); }
+.is-sm { font-size: var(--sm); }
+.is-xs { font-size: var(--xs); }
+
+/* ENLACES */
+.link{
+    color: var(--c_primary);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color .3s;
+}
+.link:hover{
+    color: #0774da
+}
+
+/* COLORES EN TEXTO */
+.is-text-primary {
+    color: var(--c_primary)
+}
+.is-text-secondary {
+    color:var(--c_gray)
+}
+.is-text-success {
+    color: var(--c_green)
+}
+.is-text-danger {
+    color: var(--c_red)
+}
+.is-text-warning {
+    color: var(--c_yellow)
+}
+.is-text-white {
+    color: var(--c_white)
+}
+.is-text-black {
+    color: var(--c_black)
+}
+
+/* BACKGROUND EN TEXTOS */
+.is-bg-primary {
+    background-color: var(--c_primary)
+}
+.is-bg-secondary {
+    background-color:var(--c_gray)
+}
+.is-bg-success {
+    background-color: var(--c_green)
+}
+.is-bg-danger {
+    background-color: var(--c_red)
+}
+.is-bg-warning {
+    background-color: var(--c_yellow)
+}
+.is-bg-white {
+    background-color: var(--c_white)
+}
+.is-bg-black {
+    background-color: var(--c_black)
+}
+
+/* BACKGROUND LIGHT EN TEXTOS */
+.is-bg-light-primary {
+    background-color: #b5dafd
+}
+.is-bg-light-secondary {
+    background-color:#e6e6e6
+}
+.is-bg-light-success {
+    background-color: #a9efde
+}
+.is-bg-light-danger {
+    background-color: #f8bac3
+}
+.is-bg-light-warning {
+    background-color: #fee9b4
+}
+.is-bg-light-black {
+    background-color: #d9d9d9
+}
+
+/* FLEX */
+.is-flex {
+    display: flex;
+}
+.is-flex-direction-row {
+    flex-direction: row;
+}
+.is-flex-direction-row-reverse {
+    flex-direction: row-reverse;
+}
+.is-flex-direction-column {
+    flex-direction: column;
+}
+.is-flex-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+.is-justify-content-space-between {
+    justify-content: space-between;
+}
+.is-justify-content-space-around {
+    justify-content: space-around;
+}
+.is-justify-content-space-evenly {
+    justify-content: space-evenly;
+}
+.is-justify-content-start {
+    justify-content: start;
+}
+.is-align-items-baseline {
+    align-items: baseline;
+}
+.is-align-items-center {
+    align-items:center;
+}
+.is-align-items-end {
+    align-items:end;
+}
+.is-align-items-start {
+    align-items:start;
+}

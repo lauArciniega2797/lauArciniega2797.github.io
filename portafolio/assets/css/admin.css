@@ -238,3 +238,12 @@ section#app_login:not(.loging) article main #content #image button {
     color: var(--white);
     cursor:pointer;
 }
+
+/* PERFIL ESTLOS */
+#image_selector {display: none;}
+#img_visualizer {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    background-image: url('../img/no-picture.jpg');
+}

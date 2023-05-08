@@ -16,12 +16,12 @@ Vue.component('mi-perfil', {
         }
     }, 
     template:`
-        <div>
+        <div class="is-flex is-justify-content-space-between is-bg-white">
             <!-- esto puede ser un componente ya que se va a usar varias veces lo de subir imagen -->
             <div id="image">
                 <img id="img_visualizer" :src="user.image">
-                <p id="message">{{ message_image }}</p>
-                <button @click="select_image">Subir foto</button>
+                <p id="message" v-if="message_image">{{ message_image }}</p>
+                <button @click="select_image" class="btn btn-success btn-block">Subir foto</button>
                 <input type="file" id="image_selector" name="image" @change="changing_img">
             </div>
             <!-- -->
@@ -176,7 +176,7 @@ Vue.component('mi-perfil', {
         changing_img: function(){
             let fileInput = document.getElementById('image_selector'),
                 inputValue = fileInput.value,
-                extAllowed = /(.jpg|.jpeg|.png)$/i,
+                extAllowed = /(.jpg|.jpeg|.png|.gif)$/i,
                 previsualizador = document.getElementById('img_visualizer')
                 app = this,
                 message_image = app.message_image,
@@ -187,6 +187,9 @@ Vue.component('mi-perfil', {
                 message_image_box.style.display = 'none'
 
                 previsualizador.src = URL.createObjectURL(fileInput.files[0])
+            } else {
+                message_image = 'Sube solo imagenes o gifs'
+                message_image_box.style.display = 'block'
             }
         },
         getData: function(){
