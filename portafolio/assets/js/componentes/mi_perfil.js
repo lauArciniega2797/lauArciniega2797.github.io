@@ -16,10 +16,12 @@ Vue.component('mi-perfil', {
         }
     }, 
     template:`
-        <div class="is-flex is-justify-content-space-between is-bg-white">
+        <div class="flex justify-content-space-between is-bg-white">
             <!-- esto puede ser un componente ya que se va a usar varias veces lo de subir imagen -->
             <div id="image">
-                <img id="img_visualizer" :src="user.image">
+                <figure>
+                    <img id="img_visualizer" :src="user.image">
+                </figure>
                 <p id="message" v-if="message_image">{{ message_image }}</p>
                 <button @click="select_image" class="btn btn-success btn-block">Subir foto</button>
                 <input type="file" id="image_selector" name="image" @change="changing_img">

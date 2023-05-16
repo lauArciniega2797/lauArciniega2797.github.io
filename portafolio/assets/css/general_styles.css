@@ -97,6 +97,11 @@ body {
     display: block;
     width: 100%;
 }
+.btn.is-btn-xs { font-size: .49em; }
+.btn.is-btn-sm { font-size: .63em; }
+.btn.is-btn-md { font-size: .78em; }
+.btn.is-btn-lg { font-size: .85em; }
+.btn.is-btn-xl { font-size: 1em; }
 /* black1:2C3333 */
 /* gray1:395B64 */
 /* green1:32E0C4 */
@@ -186,43 +191,48 @@ body {
     background-color: #d9d9d9
 }
 
-/* FLEX */
-.is-flex {
-    display: flex;
+/* FLEXBOX */
+.flex { display: flex !important; }
+.justify-content-space-around { justify-content: space-around; }
+.justify-content-space-between { justify-content: space-between; }
+.justify-content-baseline { justify-content: baseline; }
+.justify-content-center { justify-content:center }
+.justify-content-end { justify-content:end }
+.justify-content-start { justify-content:start }
+.justify-content-space-evenly { justify-content:space-evenly }
+.justify-content-stretch { justify-content:stretch }
+.align-items-baseline { align-items: baseline; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: end; }
+.align-items-start { align-items: start; }
+.flex-direction-column { flex-direction: column; }
+.flex-direction-column-reverse { flex-direction: column-reverse; }
+.flex-direction-row { flex-direction: row; }
+.flex-direction-row-reverse { flex-direction: row-reverse; }
+
+/* ESTILOS GRAL DEL MODAL */
+article.modal {
+    width: 100%;
+    height: 100vh;
+    background: rgb(0 0 0 / 78%);
+    position: fixed;
 }
-.is-flex-direction-row {
-    flex-direction: row;
+article.modal .modal_content {
+    width: 50%;
+    background: white;
+    padding: 0.6em;
+    border-radius: 4px;
 }
-.is-flex-direction-row-reverse {
-    flex-direction: row-reverse;
+article.modal .modal_content .header-modal {
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #dedede;
+    padding: 0.6em;
 }
-.is-flex-direction-column {
-    flex-direction: column;
+article.modal .modal_content .body-modal {
+    padding: .6em;
 }
-.is-flex-direction-column-reverse {
-    flex-direction: column-reverse;
-}
-.is-justify-content-space-between {
-    justify-content: space-between;
-}
-.is-justify-content-space-around {
-    justify-content: space-around;
-}
-.is-justify-content-space-evenly {
-    justify-content: space-evenly;
-}
-.is-justify-content-start {
-    justify-content: start;
-}
-.is-align-items-baseline {
-    align-items: baseline;
-}
-.is-align-items-center {
-    align-items:center;
-}
-.is-align-items-end {
-    align-items:end;
-}
-.is-align-items-start {
-    align-items:start;
+article.modal .modal_content .footer-modal {
+    margin-top: 0.5em;
+    padding: 0.6em;
+    border-top: 1px solid #dedede;
 }

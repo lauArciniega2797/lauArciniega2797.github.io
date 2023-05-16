@@ -24,20 +24,20 @@ if(isset($_SESSION['user_info'])){
 </head>
 <body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
-        <article class="modal" v-if="register">
-            <div id="modal_content">
-                <div class="header-modal">
+        <article class="modal flex align-items-center justify-content-center" v-if="register">
+            <div class="modal_content">
+                <div class="header-modal flex justify-content-space-between align-items-center">
                     <h4>Registrar usuario</h4>
-                    <button @click="register = false">
+                    <button @click="register = false" class="btn is-btn-xs">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <div class="body-modal">
                     <mi-perfil use="register" ref="user_info_modal"></mi-perfil>
                 </div>
-                <div class="footer-modal">
-                    <button @click="register = false">Cancelar</button>
-                    <button @click="">Guardar</button>
+                <div class="footer-modal flex justify-content-end">
+                    <button @click="register = false" class="btn">Cancelar</button>
+                    <button @click="" class="btn btn-success">Guardar</button>
                 </div>
             </div>
         </article>
