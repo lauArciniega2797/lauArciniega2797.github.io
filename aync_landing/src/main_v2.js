@@ -18,7 +18,7 @@ const options = {
         const result = await response.json();
         const content_box = $('#content')
 
-        let elementos = result.items.map(x => 
+        let elementos = result.items.filter(z => z.snippet.title != "Private video").map(x => 
             `
                 <div class="group relative cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${x.snippet.resourceId.videoId}')">
                     <div class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
@@ -37,7 +37,7 @@ const options = {
         content_box.innerHTML = elementos
 
         let content_all = $('#content_all')
-        let elementosAll = result.items.map(x => 
+        let elementosAll = result.items.filter(z => z.snippet.title != "Private video").map(x => 
             `
                 <div class="group relative cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${x.snippet.resourceId.videoId}')">
                     <div class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">

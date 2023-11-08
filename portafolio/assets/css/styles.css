@@ -117,7 +117,8 @@ section article h2 {
 section article div.pages-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 1.5em;
+    justify-content: center;
 }
 section article div.pages-container a.page-box {
     background: #082a45;
