@@ -1,0 +1,2 @@
+NOTAS:
+- Para evitar duplicados de usuarios, se validará por username

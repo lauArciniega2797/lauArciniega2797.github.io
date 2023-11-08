@@ -182,7 +182,7 @@ body {
     background-color: #a9efde
 }
 .is-bg-light-danger {
-    background-color: #f8bac3
+    background-color: #fad1d7
 }
 .is-bg-light-warning {
     background-color: #fee9b4
@@ -190,7 +190,9 @@ body {
 .is-bg-light-black {
     background-color: #d9d9d9
 }
-
+.is-bold {
+    font-weight: 600;
+}
 /* FLEXBOX */
 .flex { display: flex !important; }
 .justify-content-space-around { justify-content: space-around; }
@@ -218,21 +220,155 @@ article.modal {
     position: fixed;
 }
 article.modal .modal_content {
-    width: 50%;
+    width: 60%;
     background: white;
-    padding: 0.6em;
+    /* padding: 0.6em; */
     border-radius: 4px;
 }
 article.modal .modal_content .header-modal {
-    margin-bottom: 0.5em;
+    /* margin-bottom: 0.5em; */
     border-bottom: 1px solid #dedede;
     padding: 0.6em;
 }
 article.modal .modal_content .body-modal {
     padding: .6em;
+    height: 70vh;
+    overflow-y: scroll;
 }
 article.modal .modal_content .footer-modal {
-    margin-top: 0.5em;
+    /* margin-top: 0.5em; */
     padding: 0.6em;
     border-top: 1px solid #dedede;
+}
+
+/* INPUTS */
+.input-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .8em;
+}
+.input-box label{
+    display: inline-block;
+    width: 15%;
+    text-align: end;
+    margin-right: 0.4em;
+}
+.input-box input,
+.input-box select,
+.input-box textarea  {
+    padding: 0.4em 0.5em;
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
+    display: inline-block;
+    color: #333;
+    width: 85%;
+    transition: all .2s;
+}
+.input-box textarea {
+    resize: none;
+}
+.input-box label ~ div {
+    width: 100%;
+}
+.input-box:not(.horizontal) label ~ div {
+    width: 85%;
+}
+.input-box:not(.horizontal) label ~ div input[type='number'] {
+    width: 100%;
+}
+.input-box label ~ div button:first-child {
+    border-radius: 4px 0px 0px 4px;
+    border-right: none;
+}
+.input-box label ~ div button:last-child {
+    border-radius: 0px 4px 4px 0px;
+    border-left: none;
+}
+.input-box input:focus-visible,
+.input-box select:focus-visible,
+.input-box textarea:focus-visible {
+    border-color: #6c98ef;
+    box-shadow: 0px 0px 3px #6c98ef;
+    outline: none;
+}
+
+.input-box.horizontal {
+    flex-direction: column;
+}
+.input-box.horizontal label{
+    text-align: left;
+    width: 100%;
+}
+.input-box.horizontal input,
+.input-box.horizontal select,
+.input-box.horizontal textarea {
+    width: 100%;
+}
+.input-box.horizontal textarea {
+    resize: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+/* MARGENES */
+.ml-auto { margin-left: auto!important; }
+.mr-auto { margin-right: auto!important; }
+.m-auto { margin: 0 auto!important; }
+.ml-1{ margin-left: .6em!important;}
+.ml-2{ margin-left: 1em!important;}
+.ml-3{ margin-left: 1.6em!important;}
+.ml-4{ margin-left: 2em!important;}
+.ml-5{ margin-left: 2.6em!important;}
+.mr-1{ margin-right: .6em!important; }
+.mr-2{ margin-right: 1em!important; }
+.mr-3{ margin-right: 1.6em!important; }
+.mr-4{ margin-right: 2em!important; }
+.mr-5{ margin-right: 2.6em!important; }
+.mt-1{ margin-top: .3em!important;}
+.mt-2{ margin-top: .7em!important;}
+.mt-3{ margin-top: 1.1em!important;}
+.mt-4{ margin-top: 1.6em!important;}
+.mt-5{ margin-top: 2em!important;}
+.mb-1{ margin-bottom: .3em!important; }
+.mb-2{ margin-bottom: .7em!important; }
+.mb-3{ margin-bottom: 1.1em!important; }
+.mb-4{ margin-bottom: 1.6em!important; }
+.mb-5{ margin-bottom: 2em!important; }
+
+/* Paddings */
+
+/* NOTAS */
+.note {
+    padding: 0.5em 0.5em 0.5em 0.8em;
+    background-color: #f3f6f9;
+    border-left: 0.5em solid #333;
+    border-radius: 3px;
+    font-weight: 500;
+}
+.note-info {
+    background-color: #e1f0fe;
+    border-left-color: var(--c_primary);
+    color: var(--c_primary);
+}
+.note-success {
+    background-color: #d4f7ee;
+    border-left-color: var(--c_green);
+    color: var(--c_green);
+}
+.note-warning {
+    background-color: #fff8e6;
+    border-left-color: var(--c_yellow);
+    color: var(--c_yellow);
+    font-weight: 600;
+}
+.note-danger {
+    background-color: #fce8eb;
+    border-left-color: var(--c_red);
+    color: var(--c_red);
 }

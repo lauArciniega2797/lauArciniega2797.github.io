@@ -17,14 +17,15 @@ if(isset($_SESSION['user_info'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="assets/css/robotoFont.css" rel="stylesheet">
     <link href="assets/css/assistantFont.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/general_styles.css">
     <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/general_styles.css">
+    <script src="assets/js/kitfontawesomecom_fc8db0068f.js" crossorigin="anonymous"></script>
     
     <script src="assets/js/kitfontawesomecom_fc8db0068f.js" crossorigin="anonymous"></script>
 </head>
 <body data_login="<?= $logued?>">
     <section id="app_login" :class="{ 'loging':!login }">
-        <article class="modal flex align-items-center justify-content-center" v-if="register">
+        <article class="modal flex align-items-center justify-content-center" v-if="register && !login">
             <div class="modal_content">
                 <div class="header-modal flex justify-content-space-between align-items-center">
                     <h4>Registrar usuario</h4>
@@ -36,8 +37,8 @@ if(isset($_SESSION['user_info'])){
                     <mi-perfil use="register" ref="user_info_modal"></mi-perfil>
                 </div>
                 <div class="footer-modal flex justify-content-end">
-                    <button @click="register = false" class="btn">Cancelar</button>
-                    <button @click="" class="btn btn-success">Guardar</button>
+                    <button @click="register = false" class="btn is-btn-md" style="margin-right:.4em;">Cancelar</button>
+                    <button @click="createUser" class="btn btn-success is-btn-md">Guardar</button>
                 </div>
             </div>
         </article>
@@ -61,7 +62,7 @@ if(isset($_SESSION['user_info'])){
             <aside>
                 <div id="user">
                     <p id="user_avatar"><span></span></p>
-                    <p v-if="!menu_collapsed"><span>{{ usuario_name }} <br> {{ usuario_apellido }}</span></p>
+                    <p v-if="!menu_collapsed" class="is-text-white"><span>{{ usuario_name }} <br> {{ usuario_apellido }}</span></p>
                 </div>
                 <div id="options">
                     <ul>
@@ -112,6 +113,8 @@ if(isset($_SESSION['user_info'])){
                 <div id="content">
                     <p v-if="current_view == 'Dashboard'">¡Hola Laurencia! ¿Qué quieres hacer hoy?</p>
                     <mi-perfil v-if="current_view == 'Mi perfil'"></mi-perfil>
+                    <educacion v-if="current_view == 'Mi educacion'"></educacion>
+                    <trabajos v-if="current_view == 'Mis trabajos'"></trabajos>
                 </div>
             </main>
         </article>        
@@ -126,6 +129,7 @@ if(isset($_SESSION['user_info'])){
     <script src="assets/js/componentes/mis_paginas.js"></script>
     <script src="assets/js/componentes/mis_trabajos.js"></script>
     <script src="assets/js/componentes/tecnologias.js"></script>
+<script src="assets/js/helpers_functions.js"></script>
     <script src="assets/js/admin.js"></script>
 </body>
 </html>

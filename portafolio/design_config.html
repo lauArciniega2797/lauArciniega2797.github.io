@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design System</title>
     <link rel="stylesheet" href="assets/css/general_styles.css">
+    <script src="assets/js/kitfontawesomecom_fc8db0068f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h3>Botones</h3>
@@ -76,5 +77,102 @@
         <p class="is-bg-light-warning">Warning</p>
         <p class="is-bg-light-black">Black</p>
     </div>
+    
+    <hr>
+    <h3>Inputs v</h3>
+    <p>Text</p>
+    <div class="input-box">
+        <label for="">Texto</label>
+        <input type="text" name="" id="">
+    </div>
+    <br />
+    <p>Number</p>
+    <div class="input-box">
+        <label for="">Numero</label>
+        <div class="flex">
+            <button class="btn btn-secondary is-text-primary" onclick="changeNumber('input_num1', 'plus')"><b><i class="fas fa-plus"></i></b></button>
+            <input type="number" min="0" value="0" name="input_num1" id="">
+            <button class="btn btn-secondary is-text-primary" onclick="changeNumber('input_num1', 'minus')"><b><i class="fas fa-minus"></i></b></button>
+        </div>
+    </div>
+    <br />
+    <p>Select</p>
+    <div class="input-box">
+        <label for="">Select</label>
+        <select name="" id="">
+            <option value="opc1">OPC 1</option>
+            <option value="opc2">OPC 2</option>
+            <option value="opc3">OPC 3</option>
+            <option value="opc4">OPC 4</option>
+        </select>
+    </div>
+    <br />
+    <p>Textarea</p>
+    <div class="input-box">
+        <label for="">Textarea</label>
+        <textarea name="" id="" cols="2" rows="3"></textarea>
+    </div>
+    <hr>
+    <h3>Inputs h</h3>
+    <p>Text</p>
+    <div class="input-box horizontal">
+        <label for="">Texto</label>
+        <input type="text" name="" id="">
+    </div>
+    <br />
+    <p>Number</p>
+    <div class="input-box horizontal">
+        <label for="">Número</label>
+        <div class="flex">
+            <button class="btn btn-secondary is-text-primary" onclick="changeNumber('input_num', 'plus')"><b><i class="fas fa-plus"></i></b></button>
+            <input type="number" min="0" value="0" name="input_num" id="">
+            <button class="btn btn-secondary is-text-primary" onclick="changeNumber('input_num', 'minus')"><b><i class="fas fa-minus"></i></b></button>
+        </div>
+    </div>
+    <br />
+    <p>Select</p>
+    <div class="input-box horizontal">
+        <label for="">Select</label>
+        <select name="" id="">
+            <option value="opc1">OPC 1</option>
+            <option value="opc2">OPC 2</option>
+            <option value="opc3">OPC 3</option>
+            <option value="opc4">OPC 4</option>
+        </select>
+    </div>
+    <br />
+    <p>Textarea</p>
+    <div class="input-box horizontal">
+        <label for="">Textarea</label>
+        <textarea name="" id="" cols="2" rows="3"></textarea>
+    </div>
+    <hr>
+    <h3>Margenes</h3>
+    <div>
+        <div>
+            <p>Magin-right</p>
+            <button class="btn btn-success">Button 1</button>
+            <button class="btn btn-danger">Button 2</button>
+        </div>
+        <div>
+            <p>Magin-left</p>
+            <button class="btn btn-success">Button 1</button>
+            <button class="btn btn-danger">Button 2</button>
+        </div>
+    </div>
+    <hr>
+    <h3>Paddings</h3>
+    <div>
+
+    </div>
+    <hr>
+    <h3>Notas</h3>
+    <p class="note">Nota default</p>
+    <p class="note note-info">Nota Info</p>
+    <p class="note note-warning">Nota Warning</p>
+    <p class="note note-danger">Nota Danger</p>
+    <p class="note note-success">Nota Success</p>
+
+    <script src="assets/js/helpers_functions.js"></script>
 </body>
 </html>

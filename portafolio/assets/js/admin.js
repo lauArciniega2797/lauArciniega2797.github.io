@@ -76,10 +76,10 @@ let app_login = new Vue({
             } else {
                 let user_info = JSON.parse(localStorage.getItem('usuario'))
 
-                this.usuario_name = user_info[0]['nombre']
-                this.usuario_apellido = user_info[0]['apellido']
-                this.usuario_email = user_info[0]['email']
-                this.name_user = user_info[0]['username']
+                this.usuario_name = user_info[0].nombre
+                this.usuario_apellido = user_info[0].apellidos
+                this.usuario_email = user_info[0].email
+                this.name_user = user_info[0].username
 
                 this.setUserAvatar()
             }
@@ -110,10 +110,12 @@ let app_login = new Vue({
         collapse_menu: function(){
             let menu = document.querySelector('aside')
 
-
             this.menu_collapsed = this.menu_collapsed ? false : true
 
             menu.classList.toggle('collapsed')
+        },
+        createUser: function(){
+            this.$refs.user_info_modal.createUser()
         }
     }
 })
