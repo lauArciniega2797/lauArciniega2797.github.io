@@ -1,0 +1,23 @@
+{
+  "name": "async-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauArciniega2797/async-landing.git"
+  },
+  "author": "Laura Arciniega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauArciniega2797/async-landing/issues"
+  },
+  "homepage": "https://github.com/lauArciniega2797/async-landing#readme",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}
